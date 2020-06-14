@@ -2,7 +2,6 @@ package net.nikosath.project_management_tool.domain;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.NaturalId;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.Entity;
@@ -23,7 +22,6 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
-    @NaturalId
     private String identifier;
     private String description;
     private LocalDateTime startDateTime;

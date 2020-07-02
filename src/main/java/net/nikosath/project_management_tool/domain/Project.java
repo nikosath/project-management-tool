@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
-// TODO nathanasakis 2020-06-11: Use Flyway to specify the ordering of table columns
+// TODO nathanasakis 2020-06-11: Use Flyway/Liquibase to specify the ordering of table columns
 @Entity
 @Getter
 @ToString
@@ -31,7 +31,7 @@ public class Project {
     @UpdateTimestamp
     private LocalDateTime updateDateTime;
 
-    @Builder
+    @Builder(toBuilder = true)
     public Project(@NonNull String name,
                    @NonNull String identifier,
                    @NonNull String description,

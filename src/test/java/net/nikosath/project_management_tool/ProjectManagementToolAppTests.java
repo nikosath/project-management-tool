@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.context.ActiveProfiles;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -46,8 +46,8 @@ class ProjectManagementToolAppTests {
         return Project.builder()
                 .name("A project")
                 .description("A description")
-                .startDateTime(LocalDateTime.now())
-                .endDateTime(LocalDateTime.now().plusWeeks(2));
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plusWeeks(2));
     }
 
 }

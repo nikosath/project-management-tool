@@ -7,13 +7,11 @@ import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
+import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 // TODO nathanasakis 2020-06-11: Use Flyway/Liquibase to specify the ordering of table columns
 @Entity
@@ -30,28 +28,30 @@ public class Project {
     @NotBlank
     private String name;
     @NotBlank
+    @Size(min = 4, max = 5)
+    @Column(updatable = false, unique = true)
     private String identifier;
     @NotBlank
     private String description;
     @NotNull
-    private LocalDateTime startDateTime;
+    private LocalDate startDate;
     @NotNull
-    private LocalDateTime endDateTime;
+    private LocalDate endDate;
     @CreationTimestamp
-    private LocalDateTime creationDateTime;
+    private LocalDate creationDate;
     @UpdateTimestamp
-    private LocalDateTime updateDateTime;
+    private LocalDate updateDate;
 
     @Builder
     public Project(String name,
                    String identifier,
                    String description,
-                   LocalDateTime startDateTime,
-                   LocalDateTime endDateTime) {
+                   LocalDate startDate,
+                   LocalDate endDate) {
         this.name = name;
         this.identifier = identifier;
         this.description = description;
-        this.startDateTime = startDateTime;
-        this.endDateTime = endDateTime;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 }

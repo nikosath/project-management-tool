@@ -1,11 +1,18 @@
-<configuration>
-      <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-          <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-        </encoder>
-      </appender>
-     
-      <root level="info">
-        <appender-ref ref="STDOUT" />
-      </root>
+<configuration>  
+<!--<configuration debug="true">  -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">    
+        <encoder>
+            <pattern>
+                %highlight(%-5level) %cyan(%logger{16}): %msg%n%throwable
+<!--                %black(%date{HH:mm:ss.SSS}) %green(%-5level) [%black(%thread)] %cyan(%logger{26}): %msg%n%throwable-->
+<!--                %black(%d{ISO8601}) %highlight(%-5level) [%blue(%t)] %yellow(%C{1.}): %msg%n%throwable-->
+            </pattern>
+        </encoder>
+    </appender>
+
+    <logger name="net.nikosath.project_management_tool" level="INFO" />
+
+    <root level="WARN">
+        <appender-ref ref="CONSOLE"/>
+    </root>
 </configuration>

@@ -1,9 +1,6 @@
 package net.nikosath.project_management_tool.domain;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -23,7 +20,6 @@ public class Project {
     @Id
     // TODO nathanasakis 2020-06-11: Optimize for batch queries
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @NotNull
     private Long id;
     @NotBlank
     private String name;
